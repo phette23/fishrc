@@ -5,7 +5,7 @@ set -U fish_greeting ""
 set includes path exports aliases prompt
 
 for file in $includes
-  source ~/.config/fish/$file.fish
+  source ~/.config/fish/inc/$file.fish
 end
 
 # initialize rbenv
