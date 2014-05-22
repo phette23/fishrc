@@ -71,7 +71,7 @@ function pgl -d 'Find matching running processes'
 end
 
 function rf -d 'Remove recursively—careful!!!'
-	rm -rf
+	rm -rf $argv
 end
 
 function g -d 'Alias for (git)'
