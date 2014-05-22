@@ -3,4 +3,5 @@
 
 brew install fish
 sudo echo /usr/local/bin/fish >> /etc/shells
-fish sync.fish # @TODO is this how scripts are passed to fish?
+npm i
+grunt
