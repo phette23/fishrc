@@ -117,11 +117,11 @@ function spotoff -d 'Disable Spotlight'
 end
 
 function spoton -d 'Enable Spotlight'
- sudo mdutil -a -i on
+    sudo mdutil -a -i on
 end
 
 function sudo -d 'Enable aliases to be sudoed'
-    sudo $argv
+    command sudo $argv
 end
 
 function urlencode -d 'URL-encode strings'
