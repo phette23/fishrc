@@ -27,7 +27,7 @@ A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't be
 - [x] basics of prompt
 - [x] exports
 - [x] path
-- [ ] all aliases
+- [x] all aliases
 - [ ] git branch & working dir status in prompt
 - [ ] load z
 - [ ] functions

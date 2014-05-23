@@ -5,7 +5,16 @@ set -U fish_greeting ""
 set includes path exports aliases prompt
 
 for file in $includes
-  source ~/.config/fish/inc/$file.fish
+  source inc/$file.fish
+end
+
+# OS-specific customizations
+if [ (uname) = 'Darwin' ]
+    source inc/mac.fish
+end
+
+if [ (uname) = 'Linux' ]
+    source inc/linux.fish
 end
 
 # initialize rbenv
