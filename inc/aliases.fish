@@ -36,12 +36,25 @@ function dl -d 'Go to Downloads'
     cd ~/Downloads
 end
 
-function fns -d 'Shorthand for (functions)'
+function fn -d 'Shorthand for (functions)'
   functions $argv
 end
 
 function g -d 'Alias for (git)'
     git $argv
+end
+
+# Shorthand for all the common HTTP methods
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS
+    # Using backwards-compatible alias syntax in Fish
+    alias $method "lwp-request -m $method"
+end
+
+grunt --version > /dev/null
+if test $status
+    function grunt -d 'Grunt (with stack traces)'
+        command grunt --stack $argv
+    end
 end
 
 function gs -d 'Concise (git status)'
@@ -63,6 +76,10 @@ function la -d 'List *all* files'
   ls -laFh $colorflag $argv
 end
 
+function ls -d 'Always use colors with (ls)'
+    command ls $colorflag $argv
+end
+
 function lsa -d 'List all files in short format'
   ls -a $colorflag $argv
 end
@@ -71,10 +88,42 @@ function lsd -d 'List only directories'
   ls -lF $colorflag $argv | grep "^d" --color=never
 end
 
+function map -d 'Intuitive map function'
+ xargs -n1 $argv
+end
+
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
 
 function rf -d 'Remove recursively—careful!!!'
 	rm -rf $argv
+end
+
+function s -d 'Alias for subl, sublime binary'
+    subl $argv
+end
+
+function sp -d 'Open sublime project in current dir'
+    if test -f *.sublime-project
+        subl *.sublime-project
+    else
+        exit 1
+    end
+end
+
+function spotoff -d 'Disable Spotlight'
+    sudo mdutil -a -i off
+end
+
+function spoton -d 'Enable Spotlight'
+ sudo mdutil -a -i on
+end
+
+function sudo -d 'Enable aliases to be sudoed'
+    sudo $argv
+end
+
+function urlencode -d 'URL-encode strings'
+    python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
 end
