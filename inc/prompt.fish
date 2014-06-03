@@ -1,5 +1,26 @@
-function fish_prompt -d 'Set custom prompt'
+function parse_git_branch -d 'Used to show git info in prompt'
+  set branch (git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
+  if [ $status -eq 0 ]
+
+    if [ $branch = "HEAD" ]
+      set branch (git rev-parse --short HEAD 2>/dev/null)
+    end
+
+    echo -n ' on '
+    set_color purple
+    echo -n $branch
+
+    set git_status (git status --porcelain 2>/dev/null)
+    if test -n (echo $git_status)
+      echo -n '*'
+    end
+
+    set_color normal
+  end
+end
+
+function fish_prompt -d 'Set custom prompt'
   # cache variable rather than calculate each time
   if not set -q __fish_prompt_hostname
 		set -g __fish_prompt_hostname (hostname | cut -d . -f 1)
@@ -19,9 +40,7 @@ function fish_prompt -d 'Set custom prompt'
   echo -n (prompt_pwd)
 
   set_color normal
-  # echo -n ' on '
-  # set_color purple
-  # @TODO git branch here…
+  parse_git_branch
   echo
 
   set_color purple
