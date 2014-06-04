@@ -34,6 +34,4 @@ A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't be
 - [ ] cheat sheets
 - [ ] Linux/Mac specific settings
 - [x] `rbenv init`
-- [ ] load nvm.sh
-- [ ] can Bash completions be migrated?
 
