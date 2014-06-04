@@ -29,7 +29,7 @@ A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't be
 - [x] path
 - [x] all aliases
 - [x] git branch & working dir status in prompt
-- [ ] load z
+- [x] load z
 - [ ] functions
 - [ ] cheat sheets
 - [ ] Linux/Mac specific settings
