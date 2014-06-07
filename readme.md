@@ -32,6 +32,7 @@ A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't be
 - [x] load z
 - [ ] functions
 - [ ] cheat sheets
-- [ ] Linux/Mac specific settings
+- [x] Mac specific settings
+- [ ] Linux specific settings
 - [x] `rbenv init`
 
