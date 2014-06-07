@@ -17,6 +17,6 @@ if [ (uname) = 'Linux' ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# initialize rbenv
-# have to use bash, doesn't work with fish
-bash -c 'eval "$(rbenv init -)"' >/dev/null
+# see https://coderwall.com/p/hmousw
+set -gx RBENV_ROOT $HOME/.rbenv
+. (rbenv init -|psub)
