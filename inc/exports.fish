@@ -2,7 +2,7 @@
 set -xU EDITOR vim
 
 # don't remember common commands
-set -xU HISTIGNORE "ls:cd:cd -:pwd"
+set -xU HISTIGNORE 'ls:cd:cd -:pwd'
 
 # Prefer US English and use UTF-8
 set -xU LANG en_US.UTF-8
@@ -15,4 +15,4 @@ set -xU LESS_TERMCAP_md $ORANGE
 set -xU MANPAGER "less -x"
 
 # Always enable colored `grep` output
-set -xU GREP_OPTIONS "--color=auto"
+set -xU GREP_OPTIONS '--color=auto'
