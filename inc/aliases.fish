@@ -92,6 +92,14 @@ function map -d 'Intuitive map function'
  xargs -n1 $argv
 end
 
+function o -d 'Open files or current dir if no args'
+    if test -z $argv[1]
+        open .
+    else
+        open $argv
+    end
+end
+
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
