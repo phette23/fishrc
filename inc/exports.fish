@@ -1,5 +1,5 @@
 # Fish uses (set -xU) to export vars
-set -xU EDITOR emacs
+set -xU EDITOR vim
 
 # don't remember common commands
 set -xU HISTIGNORE "ls:cd:cd -:pwd"
