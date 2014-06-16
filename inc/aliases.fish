@@ -20,6 +20,8 @@ function '~' -d 'Go to home dir'
 	cd ~
 end
 
+alias b brew
+
 function code -d 'Go to ~/code'
 	cd ~/code
 end
