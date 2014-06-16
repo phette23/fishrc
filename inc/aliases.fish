@@ -131,3 +131,11 @@ end
 function urlencode -d 'URL-encode strings'
     python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
 end
+
+function v -d 'Vim alias'
+    if [ (count $argv) -eq 0 ]
+        vim .
+    else
+        vim $argv
+    end
+end
