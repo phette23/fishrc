@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                     // copy all the dot files but not sudoers-linux
                     {
                         expand: true,
-                        src: ['inc/*', 'config.fish', 'functions/*'],
+                        src: ['inc/*', 'config.fish', 'functions/*', 'completions/*'],
                         dest: path.join(process.env.HOME, '.config', 'fish')
                     }
                 ]
