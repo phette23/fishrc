@@ -22,6 +22,8 @@ end
 
 alias b brew
 
+alias cl 'wc -l'
+
 function code -d 'Go to ~/code'
 	cd ~/code
 end
