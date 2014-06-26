@@ -96,32 +96,12 @@ function map -d 'Intuitive map function'
  xargs -n1 $argv
 end
 
-function o -d 'Open files or current dir if no args'
-    if test -z $argv[1]
-        open .
-    else
-        open $argv
-    end
-end
-
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
 
 function rf -d 'Remove recursively—careful!!!'
 	rm -rf $argv
-end
-
-function s -d 'Alias for subl, sublime binary'
-    subl $argv
-end
-
-function sp -d 'Open sublime project in current dir'
-    if test -f *.sublime-project
-        subl *.sublime-project
-    else
-        exit 1
-    end
 end
 
 function spotoff -d 'Disable Spotlight'
@@ -134,12 +114,4 @@ end
 
 function urlencode -d 'URL-encode strings'
     python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
-end
-
-function v -d 'Vim alias'
-    if [ (count $argv) -eq 0 ]
-        vim .
-    else
-        vim $argv
-    end
 end
