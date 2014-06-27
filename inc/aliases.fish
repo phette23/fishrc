@@ -65,27 +65,16 @@ function gs -d 'Concise (git status)'
     git status -sb
 end
 
-# Note: Fish uses caret (^) to redirect stderr
-if ls --color > /dev/null ^&1 # GNU `ls`
-    set colorflag --color
-else # OS X `ls`
-    set colorflag -G
-end
-
 function l -d 'List files'
-    ls -lFh $colorflag $argv
-end
-
-function la -d 'List *all* files'
-  ls -laFh $colorflag $argv
+    ll $argv
 end
 
 function lsa -d 'List all files in short format'
-  ls -a $colorflag $argv
+  ls -aFG $argv
 end
 
 function lsd -d 'List only directories'
-  ls -lF $colorflag $argv | grep "^d" --color=never
+  ls -l $argv | grep "^d" --color=never
 end
 
 function map -d 'Intuitive map function'
