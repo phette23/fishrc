@@ -80,10 +80,6 @@ function la -d 'List *all* files'
   ls -laFh $colorflag $argv
 end
 
-function ls -d 'Always use colors with (ls)'
-    command ls $colorflag $argv
-end
-
 function lsa -d 'List all files in short format'
   ls -a $colorflag $argv
 end
