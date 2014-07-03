@@ -1,5 +1,4 @@
 function update -d 'Run common software updates'
-    npm update npm -g
     npm update -g
     sudo gem update
     sudo apt-get update -qq
