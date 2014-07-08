@@ -6,5 +6,6 @@ for path in /usr/local/share/npm/bin /usr/local/pear/bin $HOME/bin
     end
 end
 
-# Ensure Homebrew bins are used over /usr/bin (e.g. git)
+# Ensure 1) Gnu Utils & 2) Homebrew bins are used over /bin, /usr/bin etc. (e.g. git)
+set -x PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 set -x PATH /usr/local/bin $PATH
