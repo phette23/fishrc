@@ -22,7 +22,7 @@ If you have Node & Grunt installed, you can run `npm i` inside this project to g
 
 ## To Do
 
-A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't been ported to Fish yet.
+Some of [my Bash customizations](https://github.com/phette23/bashrc) haven't been ported to Fish yet.
 
 - [x] basics of prompt
 - [x] exports
@@ -31,7 +31,7 @@ A lot of [my Bash customizations](https://github.com/phette23/bashrc) haven't be
 - [x] git branch & working dir status in prompt
 - [x] load z
 - [x] functions
-- [ ] cheat sheets
+- [x] cheat sheets
 - [x] Mac specific settings
 - [ ] Linux specific settings
 - [x] `rbenv init`
