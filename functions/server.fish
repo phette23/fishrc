@@ -5,7 +5,7 @@ function server -d 'Start a HTTP server in the current dir, optionally specifyin
         set port 8000
     end
 
-    sleep 1
+    sleep 2
     and open "http://localhost:$port/" &
     python -c 'import SimpleHTTPServer; SimpleHTTPServer.test();' $port
 
