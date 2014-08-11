@@ -11,9 +11,7 @@ end
 # OS-specific customizations
 if [ (uname) = 'Darwin' ]
     source ~/.config/fish/inc/mac.fish
-end
-
-if [ (uname) = 'Linux' ]
+else if [ (uname) = 'Linux' ]
     source ~/.config/fish/inc/linux.fish
 end
 
