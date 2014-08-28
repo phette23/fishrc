@@ -2,7 +2,7 @@
 set -U fish_greeting ""
 
 # include stuff in subdirs
-set includes path exports aliases prompt
+set includes aliases prompt
 
 for file in $includes
     source ~/.config/fish/inc/$file.fish
