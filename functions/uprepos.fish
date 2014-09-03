@@ -1,8 +1,8 @@
-function update-repos -d 'Update all git repos in sub-directories'
+function uprepos -d 'Update all git repos in sub-directories'
     for dir in ./*/
         cd $dir
         # check if there's a repo
-        git status >/dev/null 2>1
+        git status >/dev/null ^&1
 
         if [ $status -eq 0 ]
             # check that it has a remote origin
