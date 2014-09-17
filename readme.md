@@ -2,11 +2,11 @@
 
 [Fish shell](http://fishshell.com/) customizations, such as handy aliases & functions.
 
-My configuration dotfiles are in [a separate project](https://github.com/phette23/dotconfig) now.
+My configuration dotfiles are in [a separate project](https://github.com/phette23/dotconfig).
 
 ## Structure
 
-Everything is sourced through config.fish. The files inside "inc" have self-explanatory names, like "path" & "aliases".
+Everything is sourced through config.fish. The files inside "inc" have self-explanatory names, like "aliases".
 
 Fish autoloads any functions in the functions directory.
 
@@ -19,20 +19,3 @@ If you have Node & Grunt installed, you can run `npm i` inside this project to g
 **`grunt copy`** (also the default `grunt`) moves the files into place.
 
 **`grunt watch`** monitors functions/, inc/, & config.fish for changes & then runs `copy`.
-
-## To Do
-
-Some of [my Bash customizations](https://github.com/phette23/bashrc) haven't been ported to Fish yet.
-
-- [x] basics of prompt
-- [x] exports
-- [x] path
-- [x] all aliases
-- [x] git branch & working dir status in prompt
-- [x] load z
-- [x] functions
-- [x] cheat sheets
-- [x] Mac specific settings
-- [ ] Linux specific settings
-- [x] `rbenv init`
-
