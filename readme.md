@@ -12,6 +12,8 @@ Fish autoloads any functions in the functions directory.
 
 **setup.sh** should get you up-&-running on a new Mac that doesn't have Fish installed yet (requires Homebrew).
 
+**universal.fish** sets a couple universal variables which you may want, again handy for setting up a new system.
+
 ## Grunt Tasks
 
 If you have Node & Grunt installed, you can run `npm i` inside this project to get started.

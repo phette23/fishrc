@@ -1,10 +1,4 @@
-# silent intro
-set -U fish_greeting ""
-
-# include stuff in subdirs
-set includes aliases prompt
-
-for file in $includes
+for file in aliases prompt
     source ~/.config/fish/inc/$file.fish
 end
 
