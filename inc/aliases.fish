@@ -54,11 +54,8 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS
     alias $method "lwp-request -m $method"
 end
 
-grunt --version > /dev/null
-if test $status
-    function grunt -d 'Grunt (with stack traces)'
-        command grunt --stack $argv
-    end
+function grunt -d 'Grunt (with stack traces)'
+    command grunt --stack $argv
 end
 
 function gs -d 'Concise (git status)'
