@@ -1,5 +1,5 @@
-function update -d 'Run common software update commands'
-    npm update -g
+function upd -d 'Run common software update commands'
+    npmgup
     sudo softwareupdate -i -a
     gem update --system
     gem update
