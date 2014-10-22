@@ -78,6 +78,10 @@ function map -d 'Intuitive map function'
  xargs -n1 $argv
 end
 
+function nr -d 'npm run alias'
+  npm run $argv
+end
+
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
