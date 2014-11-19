@@ -47,18 +47,24 @@ alias ips "ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # OS X Functions #
 ##################
 
-function remind -d 'add text to default list in Reminder.app'
-    if [ (count $argv) > 0 ]
-        set text $argv[1] # argument
+function backup -d 'backup Music, Movies, Pictures, & Documents folders'
+    if [ -d /Volumes/share ]
+        set RFLAGS '-ahuz --progress'
+        set DEST '/Volumes/share'
+        # use separate excludes file
+        rsync $RFLAGS --exclude-from ~/.inc/itunes-rsync-excludes.txt ~/Music $DEST/
+        rsync $RFLAGS ~/Movies/ $DEST/Video/
+        rsync $RFLAGS ~/Pictures/ $DEST/Images/
+        rsync $RFLAGS ~/Documents/zzz/ $DEST/zzz/
+        rsync $RFLAGS ~/Documents/OvalII.sparsebundle $DEST/OvalII.sparsebundle
+        rsync $RFLAGS ~/Documents/nsn.dmg $DEST/nsn.dmg
+        # run Spideroak backups w/o the GUI
+        # & backup ~/Documents to Google Drive concurrently
+        /Applications/SpiderOak.app/Contents/MacOS/SpiderOak --batchmode & zip -rq documents.zip ~/Documents
+        and mv documents.zip ~/Google\ Drive/backups/
     else
-        set text (cat) # pipe
+        echo 'Connect to backup drive first.'
     end
-
-    osascript >/dev/null -e "tell application \"Reminders\"
-        tell the default list
-            make new reminder with properties {name:\"$text\"}
-            end tell
-        end tell"
 end
 
 function note -d 'note "title" "body" adds to Notes.app'
@@ -80,6 +86,20 @@ function note -d 'note "title" "body" adds to Notes.app'
             end tell
         end tell
     end tell"
+end
+
+function remind -d 'add text to default list in Reminder.app'
+    if [ (count $argv) > 0 ]
+        set text $argv[1] # argument
+    else
+        set text (cat) # pipe
+    end
+
+    osascript >/dev/null -e "tell application \"Reminders\"
+        tell the default list
+            make new reminder with properties {name:\"$text\"}
+            end tell
+        end tell"
 end
 
 function spotoff -d 'Disable Spotlight'
@@ -123,24 +143,4 @@ function tab -d 'open new terminal tab & execute cmd'
         end tell"
   end
 
-end
-
-function backup -d 'backup Music, Movies, Pictures, & Documents folders'
-    if [ -d /Volumes/share ]
-        set RFLAGS '-ahuz --progress'
-        set DEST '/Volumes/share'
-        # use separate excludes file
-        rsync $RFLAGS --exclude-from ~/.inc/itunes-rsync-excludes.txt ~/Music $DEST/
-        rsync $RFLAGS ~/Movies/ $DEST/Video/
-        rsync $RFLAGS ~/Pictures/ $DEST/Images/
-        rsync $RFLAGS ~/Documents/zzz/ $DEST/zzz/
-        rsync $RFLAGS ~/Documents/OvalII.sparsebundle $DEST/OvalII.sparsebundle
-        rsync $RFLAGS ~/Documents/nsn.dmg $DEST/nsn.dmg
-        # run Spideroak backups w/o the GUI
-        # & backup ~/Documents to Google Drive concurrently
-        /Applications/SpiderOak.app/Contents/MacOS/SpiderOak --batchmode & zip -rq documents.zip ~/Documents
-        and mv documents.zip ~/Google\ Drive/backups/
-    else
-        echo 'Connect to backup drive first.'
-    end
 end
