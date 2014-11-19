@@ -17,13 +17,6 @@ if [ $ITERM_SESSION_ID ]
     alias tm 'tmux -CC'
 end
 
-# JavaScriptCore REPL
-set jscbin "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
-if [ -e $jscbin ]
-    alias jsc $jscbin
-end
-set -e jscbin
-
 # Source-Highlight (requires Homebrew package)
 alias ccat 'src-hilite-lesspipe.sh'
 
