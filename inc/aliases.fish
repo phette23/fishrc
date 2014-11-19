@@ -1,9 +1,5 @@
 # Simple functions that are basically aliases
 
-function .. -d 'Go up 1 dir'
-	cd ..
-end
-
 function ... -d 'Go up 2 dirs'
 	cd ../..
 end
@@ -14,10 +10,6 @@ end
 
 function ..... -d 'Go up 4 dirs'
 	cd ../../../..
-end
-
-function '~' -d 'Go to home dir'
-	cd ~
 end
 
 alias b brew
