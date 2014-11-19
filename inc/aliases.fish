@@ -82,14 +82,6 @@ function rf -d 'Remove recursively—careful!!!'
 	rm -rf $argv
 end
 
-function spotoff -d 'Disable Spotlight'
-    sudo mdutil -a -i off
-end
-
-function spoton -d 'Enable Spotlight'
-    sudo mdutil -a -i on
-end
-
 function urlencode -d 'URL-encode strings'
     python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
 end

@@ -82,6 +82,14 @@ function note -d 'note "title" "body" adds to Notes.app'
     end tell"
 end
 
+function spotoff -d 'Disable Spotlight'
+    sudo mdutil -a -i off
+end
+
+function spoton -d 'Enable Spotlight'
+    sudo mdutil -a -i on
+end
+
 # stolen from oh-my-zsh's OS X plugin:
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 function tab -d 'open new terminal tab & execute cmd'
