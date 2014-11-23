@@ -16,6 +16,10 @@ alias b brew
 
 alias cl 'wc -l'
 
+function cloc -d 'Count Lines of Code (except node_modules)'
+  command cloc --exclude-dir=node_modules $argv
+end
+
 function code -d 'Go to ~/code'
 	cd ~/code
 end
