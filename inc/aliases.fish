@@ -74,6 +74,10 @@ function map -d 'Intuitive map function'
  xargs -n1 $argv
 end
 
+function nout -d 'npm outdated --depth=0'
+  npm outdated --depth=0 $argv
+end
+
 function nr -d 'npm run alias'
   npm run $argv
 end
