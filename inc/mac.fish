@@ -4,7 +4,7 @@ function upd -d 'Run common software update commands'
     gem update --system
     gem update
     brew update
-    brew upgrade
+    brew upgrade --all
 end
 
 ################
