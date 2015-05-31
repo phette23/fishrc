@@ -40,26 +40,6 @@ alias ips "ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # OS X Functions #
 ##################
 
-function backup -d 'backup Music, Movies, Pictures, & Documents folders'
-    if [ -d /Volumes/share ]
-        set RFLAGS '-ahuz --progress'
-        set DEST '/Volumes/share'
-        # use separate excludes file
-        rsync $RFLAGS --exclude-from ~/.inc/itunes-rsync-excludes.txt ~/Music $DEST/
-        rsync $RFLAGS ~/Movies/ $DEST/Video/
-        rsync $RFLAGS ~/Pictures/ $DEST/Images/
-        rsync $RFLAGS ~/Documents/zzz/ $DEST/zzz/
-        rsync $RFLAGS ~/Documents/OvalII.sparsebundle $DEST/OvalII.sparsebundle
-        rsync $RFLAGS ~/Documents/nsn.dmg $DEST/nsn.dmg
-        # run Spideroak backups w/o the GUI
-        # & backup ~/Documents to Google Drive concurrently
-        /Applications/SpiderOak.app/Contents/MacOS/SpiderOak --batchmode & zip -rq documents.zip ~/Documents
-        and mv documents.zip ~/Google\ Drive/backups/
-    else
-        echo 'Connect to backup drive first.'
-    end
-end
-
 function note -d 'note "title" "body" adds to Notes.app'
     if [ (count $argv) > 0 ]
         set title $argv[1]
