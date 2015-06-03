@@ -12,3 +12,5 @@ end
 # see https://coderwall.com/p/hmousw
 set -gx RBENV_ROOT $HOME/.rbenv
 . (rbenv init -|psub)
+
+source ~/.config/fish/nvm-wrapper/nvm.fish
