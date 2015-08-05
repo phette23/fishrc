@@ -36,6 +36,10 @@ function dl -d 'Go to Downloads'
     cd ~/Downloads
 end
 
+function dt -d 'ISO 8601 format for the current date'
+	date "+%Y-%m-%d"
+end
+
 function fn -d 'Shorthand for (functions)'
   functions $argv
 end
