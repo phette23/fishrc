@@ -37,7 +37,7 @@ function dl -d 'Go to Downloads'
 end
 
 function dt -d 'ISO 8601 format for the current date'
-	date "+%Y-%m-%d"
+	date "+%Y-%m-%d" $argv
 end
 
 function fn -d 'Shorthand for (functions)'
