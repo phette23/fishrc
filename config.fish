@@ -14,3 +14,6 @@ set -gx RBENV_ROOT $HOME/.rbenv
 . (rbenv init -|psub)
 
 source ~/.config/fish/nvm-wrapper/nvm.fish
+
+# this uses our NVM alias, so it works in Fish shell via Bass
+nvm use stable >/dev/null
