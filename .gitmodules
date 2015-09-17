@@ -1,3 +1,0 @@
-[submodule "nvm-wrapper"]
-	path = nvm-wrapper
-	url = https://github.com/passcod/nvm-fish-wrapper
