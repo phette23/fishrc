@@ -4,6 +4,8 @@ function upd -d 'Run common software update commands'
     gem update --system
     gem update
     brew update
+    # screw Apple & El Capitan, who make this necessary
+    sudo chown -R (whoami):admin /usr/local
     brew upgrade --all
 end
 
