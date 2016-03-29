@@ -6,6 +6,6 @@ function urlfile -d 'given URL, echo a .url file (pipe fn ouput to file)'
     else
         echo "[InternetShortcut]"
         # first arg is URL
-        echo "URL=\"$argv[1]\""
+        echo "URL=$argv[1]"
     end
 end
