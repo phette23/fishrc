@@ -13,6 +13,9 @@ end
 set -gx RBENV_ROOT $HOME/.rbenv
 . (rbenv init -|psub)
 
+# enable perl env, see the `brew info plenv` instructions
+if plenv > /dev/null; plenv init - | source ; end
+
 source ~/.config/fish/nvm-wrapper/nvm.fish
 
 # this uses our NVM alias, so it works in Fish shell via Bass
