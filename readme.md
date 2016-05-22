@@ -10,7 +10,7 @@ Everything is sourced through config.fish. The files inside "inc" have self-expl
 
 Fish autoloads any functions in the functions directory.
 
-**setup.sh** should get you up-&-running on a new Mac that doesn't have Fish installed yet (requires Homebrew).
+**setup.sh** should get you up-&-running on a new Mac that doesn't have Fish or [Fisherman](https://github.com/fisherman/fisherman) installed yet (requires Homebrew).
 
 **universal.fish** sets a couple universal variables which you may want, again handy for setting up a new system.
 
