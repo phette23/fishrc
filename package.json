@@ -1,7 +1,7 @@
 {
   "name": "fishrc",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "fish shell configuration",
   "main": "Gruntfile.js",
   "author": "phette23 <phette23@gmail.com> (http://phette.net/)",
   "license": "MIT",
