@@ -3,21 +3,27 @@ for file in aliases prompt
 end
 
 # OS-specific customizations
-if [ (uname) = 'Darwin' ]
+set osname (uname)
+if [ $osname = 'Darwin' ]
     source ~/.config/fish/inc/mac.fish
-else if [ (uname) = 'Linux' ]
+else if [ $osname = 'Linux' ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# see https://coderwall.com/p/hmousw
-set -gx RBENV_ROOT $HOME/.rbenv
-. (rbenv init -|psub)
+# initialize ruby env, see https://coderwall.com/p/hmousw
+if command -s rbenv > /dev/null;
+    set -gx RBENV_ROOT $HOME/.rbenv
+    . (rbenv init -|psub)
+end
 
-# enable perl env, see `plenv init` for instructions
+# initialize perl env, see `plenv init` for instructions
 if command -s plenv > /dev/null;
     status --is-interactive
     and source (plenv init -|psub)
 end
 
 # initialize node using nvm, sets version to "default" alias
-bass source ~/.nvm/nvm.sh --no-use
+[ -e ~/.nvm/nvm.sh ]; and bass source ~/.nvm/nvm.sh --no-use
+
+# iTerm2 integration
+[ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
