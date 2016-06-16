@@ -24,6 +24,7 @@ end
 
 # initialize node using nvm, sets version to "default" alias
 [ -e ~/.nvm/nvm.sh ]; and bass source ~/.nvm/nvm.sh --no-use
+fn nvm > /dev/null; and nvm use default > /dev/null
 
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
