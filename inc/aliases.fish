@@ -86,10 +86,6 @@ function nr -d 'npm run alias'
   npm run $argv
 end
 
-function nvm -d 'run NVM in Fish using Bass'
-	bass source ~/.nvm/nvm.sh ';' nvm $argv
-end
-
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
