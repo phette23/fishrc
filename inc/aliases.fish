@@ -86,10 +86,6 @@ function nr -d 'npm run alias'
   npm run $argv
 end
 
-function pbc -d 'copy file to clipboard'
-	cat $argv[1] | pbcopy
-end
-
 function pgl -d 'Find matching running processes'
 	pgrep -lf $argv
 end
