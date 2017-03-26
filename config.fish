@@ -23,7 +23,7 @@ if command -s plenv > /dev/null;
 end
 
 # initialize node using nvm, sets version to "default" alias
-[ -e ~/.nvm/nvm.sh ]; and bass source ~/.nvm/nvm.sh --no-use
+[ -d ~/.nvm ]; and bass source /usr/local/opt/nvm/nvm.sh --no-use
 fn nvm > /dev/null; and nvm use default > /dev/null
 
 # iTerm2 integration
