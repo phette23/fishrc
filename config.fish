@@ -16,12 +16,6 @@ if command -s rbenv > /dev/null;
     . (rbenv init -|psub)
 end
 
-# initialize perl env, see `plenv init` for instructions
-if command -s plenv > /dev/null;
-    status --is-interactive
-    and source (plenv init -|psub)
-end
-
 # initialize node using nvm, sets version to "default" alias
 [ -d ~/.nvm ]; and bass source /usr/local/opt/nvm/nvm.sh --no-use
 fn nvm > /dev/null; and nvm use default > /dev/null
