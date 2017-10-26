@@ -3,8 +3,6 @@
 
 brew install fish
 echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
-npm i
-grunt
 
 # install fisherman plugin manager
 brew tap fisherman/tap
@@ -14,3 +12,4 @@ fisher edc/bass z
 
 # download iTerm2 integration file
 curl -L https://iterm2.com/misc/fish_startup.in > ~/.iterm2_shell_integration.fish
+./copy.fish
