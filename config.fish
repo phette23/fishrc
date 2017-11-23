@@ -16,9 +16,5 @@ if command -s rbenv > /dev/null;
     . (rbenv init -|psub)
 end
 
-# initialize node using nvm, sets version to "default" alias
-[ -d ~/.nvm ]; and bass source /usr/local/opt/nvm/nvm.sh --no-use
-fn nvm > /dev/null; and nvm use default > /dev/null
-
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
