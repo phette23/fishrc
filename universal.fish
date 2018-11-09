@@ -3,6 +3,7 @@
 set --universal fish_greeting ""
 
 set --local paths ~/bin /usr/local/bin
+[ -d /usr/local/sbin ]; and set --local paths $paths /usr/local/sbin
 
 # homebrew formula bins
 if command -v brew >/dev/null
