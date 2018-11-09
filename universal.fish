@@ -3,8 +3,11 @@
 set --universal fish_greeting ""
 
 set --local paths ~/bin /usr/local/bin
-[ -d /usr/local/opt/python@2/bin ]; and set paths $paths /usr/local/opt/python@2/bin
-set --local gnubin (brew --prefix coreutils)/libexec/gnubin
-[ -d $gnubin ]; and set --local paths $paths $gnubin
+
+# homebrew formula bins
+if command -v brew >/dev/null
+    brew --prefix python >/dev/null; and set paths $paths (brew --prefix python)/bin
+    brew --prefix coreutils >/dev/null; and set --local paths $paths (brew --prefix coreutils)/libexec/gnubin
+end
 
 set --universal fish_user_paths $paths
