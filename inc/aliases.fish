@@ -54,6 +54,10 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS
     alias $method "lwp-request -m $method"
 end
 
+function gp -d 'prune remote branches that no longer exist'
+	git remote prune origin
+end
+
 function gs -d 'Concise (git status)'
     git status -sb
 end
