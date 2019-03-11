@@ -1,5 +1,5 @@
 function upd -d 'Run common software update commands'
-    npmgup
+    npm update -g
     sudo softwareupdate -i -a
     gem update --system
     brew update

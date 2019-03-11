@@ -1,5 +1,5 @@
 function upd -d 'Run common software updates'
-    npmgup
+    npm update -g
     sudo apt-get update -qq
     sudo apt-get upgrade -y
 end
