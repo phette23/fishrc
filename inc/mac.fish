@@ -1,3 +1,8 @@
+# set tab title to current directory
+function fish_title
+  echo -n (status current-command) '-' (basename $PWD)
+end
+
 function upd -d 'Run common software update commands'
     npm update -g
     sudo softwareupdate -i -a
@@ -91,28 +96,27 @@ function tab -d 'open new terminal tab & execute cmd'
         set cmd $argv
     end
 
-  set the_app (osascript 2>/dev/null -e 'tell application "System Events"
+  set the_app (osascript -e 'tell application "System Events"
         name of first item of (every process whose frontmost is true)
       end tell'
   )
 
   if [ $the_app = 'Terminal' ]
-    osascript 2>/dev/null -e "tell application \"System Events\"
+    osascript -e "tell application \"System Events\"
           tell process \"Terminal\" to keystroke \"t\" using command down
           tell application \"Terminal\" to do script \"$cmd\" in front window
       end tell"
   end
 
-  if [ $the_app = 'iTerm' ]
-    osascript 2>/dev/null -e "tell application \"iTerm\"
-        activate
-        tell the first terminal
-            launch session \"Default Session\"
-            tell the last session
+  if [ $the_app = 'iTerm' -o $the_app = 'iTerm2' ]
+    osascript -e "tell application \"$the_app\"
+        tell current window
+            create tab with default profile
+            tell current session
                 write text \"$cmd\"
-                end tell
-              end tell
-        end tell"
+            end tell
+        end tell
+    end tell"
   end
 
 end
