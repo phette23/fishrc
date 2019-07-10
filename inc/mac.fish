@@ -1,4 +1,4 @@
-# set tab title to current directory
+# set tab title to current command & directory
 function fish_title
   echo -n (status current-command) '-' (basename $PWD)
 end
@@ -31,6 +31,9 @@ alias emptytrash "sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 # Show/hide hidden files in Finder
 alias show "defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
 alias hide "defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder"
+
+# restart local SSH server, need to do this before running Portal vagrant sometimes
+alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist"
 
 # Clean up LaunchServices to remove duplicates in the "Open With" menu
 alias lscleanup "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user; and killall Finder"
