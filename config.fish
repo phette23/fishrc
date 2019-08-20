@@ -21,5 +21,8 @@ if command -s rbenv > /dev/null;
     . (rbenv init -|psub)
 end
 
+# python virtualfish
+eval (python -m virtualfish) 2> /dev/null
+
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish

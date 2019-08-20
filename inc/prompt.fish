@@ -23,8 +23,13 @@ end
 function fish_prompt -d 'Set custom prompt'
   # cache variable rather than calculate each time
   if not set -q __fish_prompt_hostname
-		set -g __fish_prompt_hostname (hostname | cut -d . -f 1)
-	end
+	set -g __fish_prompt_hostname (hostname | cut -d . -f 1)
+  end
+
+  # python virtualenv, uses virtualfish wrapper
+  if set -q VIRTUAL_ENV
+    echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+  end
 
   set_color red
   echo -n $USER
