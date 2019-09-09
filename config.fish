@@ -2,11 +2,6 @@ for file in aliases prompt
     source ~/.config/fish/inc/$file.fish
 end
 
-# completions (homebrew installs them here)
-if test -d /usr/local/share/fish/vendor_completions.d
-    source /usr/local/share/fish/vendor_completions.d/*
-end
-
 # OS-specific customizations
 set osname (uname)
 if [ $osname = 'Darwin' ]
