@@ -18,6 +18,8 @@ end
 
 # python virtualfish
 eval (python3 -m virtualfish 2> /dev/null)
+# pipenv completion (only one of these 2 will be used but support both)
+command -v pipenv >/dev/null; and eval (pipenv --completion)
 
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish

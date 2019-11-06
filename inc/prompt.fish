@@ -27,7 +27,7 @@ function fish_prompt -d 'Set custom prompt'
   end
 
   # python virtualenv, uses virtualfish wrapper
-  if set -q VIRTUAL_ENV
+  if functions -q vf; and set -q VIRTUAL_ENV
     echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
   end
 
