@@ -6,7 +6,7 @@ end
 function upd -d 'Run common software update commands'
     npm update -g
     sudo softwareupdate -i -a
-    gem update --system
+    gem update --system ^/dev/null
     brew update
     brew upgrade
 end
