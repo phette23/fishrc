@@ -28,12 +28,16 @@ function cx -d 'Make file executable'
 	chmod +x $argv
 end
 
-function d -d 'Go to Dropbox'
-    cd ~/Dropbox
-end
-
 function dl -d 'Go to Downloads'
     cd ~/Downloads
+end
+
+function doc -d 'Go to Documents'
+    cd ~/Documents
+end
+
+function dr -d 'Go to Google Drive'
+    cd ~/Google\ Drive
 end
 
 function dt -d 'ISO 8601 format for the current date'
