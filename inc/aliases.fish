@@ -63,7 +63,7 @@ function gs -d 'Concise (git status)'
 end
 
 function l -d 'List files'
-    ll $argv
+    ls -lG $argv
 end
 
 function lsa -d 'List all files in short format'
