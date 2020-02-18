@@ -13,7 +13,7 @@ end
 # initialize ruby env, see https://coderwall.com/p/hmousw
 if command -s rbenv > /dev/null;
     set -gx RBENV_ROOT $HOME/.rbenv
-    . (rbenv init -|psub)
+    rbenv init - | source
 end
 
 # python virtualfish
