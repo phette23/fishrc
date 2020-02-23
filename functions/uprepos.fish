@@ -2,11 +2,11 @@ function uprepos -d 'Update all git repos in sub-directories'
     for dir in ./*/
         cd $dir
         # check if there's a repo
-        git status >/dev/null ^&1
+        git status &>/dev/null
 
         if [ $status -eq 0 ]
             # check that it has a remote origin
-            git remote | grep origin >/dev/null ^&1
+            git remote | grep origin &>/dev/null
 
             if [ $status -eq 0 ]
                 set_color red
