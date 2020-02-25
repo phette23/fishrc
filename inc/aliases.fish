@@ -62,6 +62,10 @@ function gs -d 'Concise (git status)'
     git status -sb
 end
 
+function k1 -d 'Kill the first job'
+    kill %1
+end
+
 function l -d 'List files'
     ls -lG $argv
 end
