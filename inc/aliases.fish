@@ -44,6 +44,11 @@ function dt -d 'ISO 8601 format for the current date'
 	date "+%Y-%m-%d" $argv
 end
 
+function e -d 'exa (improved version of "ls")'
+	# make "date" column cyan instead of hard-to-read dark blue
+	EXA_COLORS="da=36" exa -l
+end
+
 function fn -d 'Shorthand for (functions)'
   functions $argv
 end
