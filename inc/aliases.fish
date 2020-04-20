@@ -46,7 +46,7 @@ end
 
 function e -d 'exa (improved version of "ls")'
 	# make "date" column cyan instead of hard-to-read dark blue
-	EXA_COLORS="da=36" exa -l
+	EXA_COLORS="da=36" exa -l $argv
 end
 
 function fn -d 'Shorthand for (functions)'
