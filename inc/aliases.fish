@@ -72,15 +72,35 @@ function k1 -d 'Kill the first job'
 end
 
 function l -d 'List files'
-    ls -lG $argv
+	if command -v exa >/dev/null
+		EXA_COLORS="da=36" exa -l $argv
+	else
+		ls -lG $argv
+	end
+end
+
+function la -d 'List files'
+	if command -v exa >/dev/null
+		EXA_COLORS="da=36" exa -al $argv
+	else
+		ls -alG $argv
+	end
 end
 
 function lsa -d 'List all files in short format'
-  ls -aFG $argv
+	if command -v exa >/dev/null
+		EXA_COLORS="da=36" exa -a $argv
+	else
+		ls -aFG $argv
+	end
 end
 
 function lsd -d 'List only directories'
-  ls -l $argv | grep "^d" --color=never
+	if command -v exa >/dev/null
+		exa -D $argv
+	else
+		ls -l $argv | grep "^d" --color=never
+	end
 end
 
 function map -d 'Intuitive map function'
