@@ -16,8 +16,6 @@ if command -s rbenv > /dev/null;
     rbenv init - | source
 end
 
-# python virtualfish
-eval (python3 -m virtualfish 2> /dev/null)
 # pipenv completion (only one of these 2 will be used but support both)
 command -v pipenv >/dev/null; and eval (pipenv --completion)
 
