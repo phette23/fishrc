@@ -46,7 +46,7 @@ end
 
 function e -d 'exa (improved version of "ls")'
 	# make "date" column cyan instead of hard-to-read dark blue
-	EXA_COLORS="da=36" exa -l $argv
+	EXA_COLORS="da=36" exa -l --group-directories-first $argv
 end
 
 function fn -d 'Shorthand for (functions)'
@@ -73,7 +73,7 @@ end
 
 function l -d 'List files'
 	if command -v exa >/dev/null
-		EXA_COLORS="da=36" exa -l $argv
+		EXA_COLORS="da=36" exa -l --group-directories-first $argv
 	else
 		ls -lG $argv
 	end
@@ -81,7 +81,7 @@ end
 
 function la -d 'List files'
 	if command -v exa >/dev/null
-		EXA_COLORS="da=36" exa -al $argv
+		EXA_COLORS="da=36" exa -al --group-directories-first $argv
 	else
 		ls -alG $argv
 	end
@@ -89,7 +89,7 @@ end
 
 function lsa -d 'List all files in short format'
 	if command -v exa >/dev/null
-		EXA_COLORS="da=36" exa -a $argv
+		EXA_COLORS="da=36" exa -a --group-directories-first $argv
 	else
 		ls -aFG $argv
 	end
