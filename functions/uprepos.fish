@@ -1,14 +1,10 @@
 function uprepos -d 'Update all git repos in sub-directories'
     for dir in ./*/
         cd $dir
-        # check if there's a repo
-        git status &>/dev/null
 
-        if [ $status -eq 0 ]
+        if git status &>/dev/null
             # check that it has a remote origin
-            git remote | grep origin &>/dev/null
-
-            if [ $status -eq 0 ]
+            if git remote | grep origin &>/dev/null
                 set_color red
                 echo -n "Updating "
                 echo $dir | sed -e "s|\./||" -e "s|/||"
@@ -18,8 +14,7 @@ function uprepos -d 'Update all git repos in sub-directories'
             end
         end
 
-        # return to cwd
-        # note that ".." wouldn't work with symlinked dirs
+        # return to cwd, note ".." doesn't work with symlinked dirs
         cd -
     end
 end
