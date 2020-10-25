@@ -38,9 +38,7 @@ alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist
 alias lscleanup "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user; and killall Finder"
 
 # IP addresses
-alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip "ipconfig getifaddr en0"
-alias ips "ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 ##################
 # OS X Functions #
