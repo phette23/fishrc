@@ -59,8 +59,8 @@ end
 
 # Shorthand for all the common HTTP methods
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS
-    # Using backwards-compatible alias syntax in Fish
-    alias $method "lwp-request -m $method"
+    # won't work with SSL verification, `cpan -i Mozilla:CA` doesn't fix this
+    alias $method "PERL_LWP_SSL_VERIFY_HOSTNAME=0 lwp-request -m $method -u"
 end
 
 function gs -d 'Concise (git status)'
