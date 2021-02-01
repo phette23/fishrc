@@ -27,6 +27,9 @@ alias ccat 'src-hilite-lesspipe.sh'
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash "sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
+# flush the DNS cache (Mac OS 10.12 & later)
+alias flushdns "sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper; sudo dscacheutil -flushcache"
+
 # Show/hide hidden files in Finder
 alias show "defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
 alias hide "defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder"
