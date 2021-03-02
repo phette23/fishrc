@@ -16,7 +16,7 @@ if command -s rbenv > /dev/null;
     rbenv init - | source
 end
 
-# pipenv completion (only one of these 2 will be used but support both)
+# pipenv completion
 command -v pipenv >/dev/null; and eval (pipenv --completion)
 
 # iTerm2 integration
