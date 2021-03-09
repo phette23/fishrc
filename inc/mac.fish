@@ -4,10 +4,10 @@ function fish_title
 end
 
 function upd -d 'Run common software update commands'
-    npm update -g
+    command --query apm && apm upgrade --confirm=false
+    command --query npm && npm update -g
     sudo softwareupdate -i -a
-    brew update
-    brew upgrade
+    command --query brew && brew update && brew upgrade
 end
 
 ################
