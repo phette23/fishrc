@@ -57,6 +57,10 @@ function g -d 'Alias for (git)'
     git $argv
 end
 
+function ghview -d 'open GitHub repo (requires gh)'
+    gh repo view --web
+end
+
 # Shorthand for all the common HTTP methods
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS
     # won't work with SSL verification, `cpan -i Mozilla:CA` doesn't fix this
