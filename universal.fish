@@ -11,5 +11,5 @@ if command -v brew >/dev/null
     brew --prefix coreutils >/dev/null; and fish_add_path (brew --prefix coreutils)/libexec/gnubin
 end
 
-set --universal --export EDITOR atom
+set --universal --export EDITOR vim
 set --universal --export HOMEBREW_EDITOR atom
