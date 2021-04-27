@@ -11,13 +11,13 @@ else if [ $osname = 'Linux' ]
 end
 
 # initialize ruby env, see https://coderwall.com/p/hmousw
-if command -s rbenv > /dev/null;
+if command --query rbenv
     set -gx RBENV_ROOT $HOME/.rbenv
     rbenv init - | source
 end
 
 # pipenv completion
-command -v pipenv >/dev/null; and eval (pipenv --completion)
+command --query pipenv && eval (pipenv --completion)
 
 # iTerm2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
