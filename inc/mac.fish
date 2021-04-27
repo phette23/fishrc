@@ -10,6 +10,9 @@ function upd -d 'Run common software update commands'
     command --query brew && brew update && brew upgrade
 end
 
+# Homebrew env vars https://docs.brew.sh/Manpage#shellenv
+command --query brew && eval (brew shellenv)
+
 ################
 # OS X Aliases #
 ################
