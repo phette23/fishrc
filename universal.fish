@@ -7,7 +7,7 @@ fish_add_path /usr/local/bin
 [ -d /usr/local/sbin ]; and fish_add_path /usr/local/sbin
 
 # homebrew formula bins
-if command -v brew >/dev/null
+if command --query brew
     brew --prefix coreutils >/dev/null; and fish_add_path (brew --prefix coreutils)/libexec/gnubin
 end
 
