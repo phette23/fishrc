@@ -14,6 +14,8 @@ end
 
 alias b brew
 
+alias be 'bundle exec'
+
 alias cl 'wc -l'
 
 function cloc -d 'Count Lines of Code (except node_modules)'
