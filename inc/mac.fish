@@ -13,9 +13,9 @@ end
 # Homebrew env vars https://docs.brew.sh/Manpage#shellenv
 command --query /usr/local/bin/brew && eval (brew shellenv)
 
-################
-# OS X Aliases #
-################
+############################
+# OS X Aliases & Functions #
+############################
 
 # use iTerm-Tmux integration if we're in iTerm
 # see: https://code.google.com/p/iterm2/wiki/TmuxIntegration
@@ -39,17 +39,17 @@ alias emptytrash "sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias flushdns "sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper; sudo dscacheutil -flushcache"
 
 # Show/hide hidden files in Finder
-alias show "defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
 alias hide "defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder"
-
-# restart local SSH server, need to do this before running Portal vagrant sometimes
-alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist"
+alias show "defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
 
 # Clean up LaunchServices to remove duplicates in the "Open With" menu
 alias lscleanup "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user; and killall Finder"
 
 # IP addresses
 alias localip "ipconfig getifaddr en0"
+
+# restart local SSH server, need to do this before running Portal vagrant sometimes
+alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist"
 
 # stolen from oh-my-zsh's OS X plugin:
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
