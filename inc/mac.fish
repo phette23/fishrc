@@ -51,53 +51,6 @@ alias lscleanup "/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 # IP addresses
 alias localip "ipconfig getifaddr en0"
 
-##################
-# OS X Functions #
-##################
-
-function note -d 'note "title" "body" adds to Notes.app'
-    if [ (count $argv) > 0 ]
-        set title $argv[1]
-
-        if [ (count $argv) -eq 2 ]
-            set body $argv[2]
-        end
-    else
-        # pipe use case
-        set title (cat)
-    end
-
-    osascript >/dev/null -e "tell application \"Notes\"
-        tell account \"iCloud\"
-            tell folder \"Notes\"
-                make new note with properties {name:\"$title\", body:\"$title\" & \"<br><br>\" & \"$body\"}
-            end tell
-        end tell
-    end tell"
-end
-
-function remind -d 'add text to default list in Reminder.app'
-    if [ (count $argv) > 0 ]
-        set text $argv[1] # argument
-    else
-        set text (cat) # pipe
-    end
-
-    osascript >/dev/null -e "tell application \"Reminders\"
-        tell the default list
-            make new reminder with properties {name:\"$text\"}
-            end tell
-        end tell"
-end
-
-function spotoff -d 'Disable Spotlight'
-    sudo mdutil -a -i off
-end
-
-function spoton -d 'Enable Spotlight'
-    sudo mdutil -a -i on
-end
-
 # stolen from oh-my-zsh's OS X plugin:
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 function tab -d 'open new terminal tab & execute cmd'
