@@ -3,15 +3,18 @@ function fish_title
   echo -n (status current-command) '-' (basename $PWD)
 end
 
+# to make everything below more succinct
+alias cq "command --query"
+
 function upd -d 'Run common software update commands'
-    command --query apm && apm upgrade --confirm=false
-    command --query npm && npm update -g
+    cq apm && apm upgrade --confirm=false
+    cq npm && cq npm-lsg-unlinked && npm-lsg-unlinked | xargs npm update -g
     sudo softwareupdate -i -a
-    command --query brew && brew update && brew upgrade
+    cq brew && brew update && brew upgrade
 end
 
 # Homebrew env vars https://docs.brew.sh/Manpage#shellenv
-command --query /usr/local/bin/brew && eval (brew shellenv)
+cq /usr/local/bin/brew && eval (brew shellenv)
 
 ############################
 # OS X Aliases & Functions #
