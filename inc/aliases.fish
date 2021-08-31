@@ -135,10 +135,6 @@ function rf -d 'Remove recursively—careful!!!'
 	rm -rf $argv
 end
 
-function t -d 'todo.sh alias (adds date, uses config in Drive)'
-	todo.sh -t -d ~/Google\ Drive/z/todo/todo.cfg $argv
-end
-
 function urlencode -d 'URL-encode strings'
     python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
 end
