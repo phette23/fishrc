@@ -18,10 +18,6 @@ alias be 'bundle exec'
 
 alias cl 'wc -l'
 
-function cloc -d 'Count Lines of Code (excluding certain dirs)'
-  command cloc --exclude-dir=node_modules --exclude-dir=_site $argv
-end
-
 function code -d 'Go to ~/code'
 	cd ~/code
 end
@@ -131,8 +127,4 @@ end
 
 function rf -d 'Remove recursively—careful!!!'
 	rm -rf $argv
-end
-
-function urlencode -d 'URL-encode strings'
-    python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);" $argv
 end
