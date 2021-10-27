@@ -18,8 +18,8 @@ alias be 'bundle exec'
 
 alias cl 'wc -l'
 
-function cloc -d 'Count Lines of Code (except node_modules)'
-  command cloc --exclude-dir=node_modules $argv
+function cloc -d 'Count Lines of Code (excluding certain dirs)'
+  command cloc --exclude-dir=node_modules --exclude-dir=_site $argv
 end
 
 function code -d 'Go to ~/code'
@@ -46,22 +46,16 @@ function dt -d 'ISO 8601 format for the current date'
 	date "+%Y-%m-%d" $argv
 end
 
-function e -d 'exa (improved version of "ls")'
+function e -d 'exa (improved version of "ls")' --wraps=exa
 	# make "date" column cyan instead of hard-to-read dark blue
 	EXA_COLORS="da=36" exa -l --group-directories-first $argv
 end
 
-function fn -d 'Shorthand for (functions)'
+function fn -d 'Shorthand for (functions)' --wraps=functions
   functions $argv
 end
 
-function g -d 'Alias for (git)'
-    git $argv
-end
-
-function ghview -d 'open GitHub repo (requires gh)'
-    gh repo view --web
-end
+alias g git
 
 # Shorthand for all the common HTTP methods
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS
@@ -69,7 +63,7 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS
     alias $method "PERL_LWP_SSL_VERIFY_HOSTNAME=0 lwp-request -m $method -u"
 end
 
-function gs -d 'Concise (git status)'
+function gs -d 'Concise git status'
     git status -sb
 end
 
@@ -81,24 +75,24 @@ function k1 -d 'Kill the first job'
     kill %1
 end
 
-function l -d 'List files'
-	if command -v exa >/dev/null
+function l -d 'List files in long format'
+	if command -q exa
 		EXA_COLORS="da=36" exa -l --group-directories-first $argv
 	else
 		ls -lG $argv
 	end
 end
 
-function la -d 'List files'
-	if command -v exa >/dev/null
+function la -d 'List (all) files long format'
+	if command -q exa
 		EXA_COLORS="da=36" exa -al --group-directories-first $argv
 	else
 		ls -alG $argv
 	end
 end
 
-function lsa -d 'List all files in short format'
-	if command -v exa >/dev/null
+function lsa -d 'List (all) files in short format'
+	if command -q exa
 		EXA_COLORS="da=36" exa -a --group-directories-first $argv
 	else
 		ls -aFG $argv
@@ -106,15 +100,15 @@ function lsa -d 'List all files in short format'
 end
 
 function lsd -d 'List only directories'
-	if command -v exa >/dev/null
+	if command -q exa
 		exa -D $argv
 	else
 		ls -l $argv | grep "^d" --color=never
 	end
 end
 
-function map -d 'Intuitive map function'
- xargs -n1 $argv
+function map -d 'Intuitive map function' --wraps=xargs
+	xargs -n1 $argv
 end
 
 alias mre "mdless readme.md"
@@ -128,7 +122,11 @@ function nr -d 'npm run alias'
 end
 
 function pgl -d 'Find matching running processes'
-	pgrep -lf $argv
+	pgrep -alf $argv
+end
+
+function pic -d 'Go to Pictures'
+    cd ~/Pictures
 end
 
 function rf -d 'Remove recursively—careful!!!'

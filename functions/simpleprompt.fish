@@ -6,5 +6,4 @@ function simpleprompt -d 'A simple prompt for distraction-free screencasts'
         echo -n '$ '
         set_color normal
     end
-
 end

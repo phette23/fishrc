@@ -23,4 +23,4 @@ command --query pipenv && eval (pipenv --completion)
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; . '~/bin/google-cloud-sdk/path.fish.inc'; end
+[ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; and source ~/bin/google-cloud-sdk/path.fish.inc

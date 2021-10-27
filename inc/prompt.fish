@@ -46,5 +46,4 @@ function fish_prompt -d 'Set custom prompt'
   set_color purple
   echo -n '¿ '
   set_color normal
-
 end
