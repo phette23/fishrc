@@ -18,7 +18,7 @@ alias be 'bundle exec'
 
 alias cl 'wc -l'
 
-function code -d 'Go to ~/code'
+function co -d 'Go to ~/code'
 	cd ~/code
 end
 
