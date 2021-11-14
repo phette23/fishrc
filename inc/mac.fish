@@ -7,7 +7,6 @@ end
 alias cq "command --query"
 
 function upd -d 'Run common software update commands'
-    cq apm && apm upgrade --confirm=false
     cq npm && cq npm-lsg-unlinked && npm-lsg-unlinked | xargs npm update -g --audit=false --fund=false
     sudo softwareupdate -i -a
     cq brew && brew update && brew upgrade
