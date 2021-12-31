@@ -9,7 +9,7 @@ alias cq "command --query"
 function upd -d 'Run common software update commands'
     cq npm && cq npm-lsg-unlinked && npm-lsg-unlinked | xargs npm update -g --audit=false --fund=false
     sudo softwareupdate -i -a
-    cq brew && brew update && brew upgrade
+    cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
 end
 
 # Homebrew env vars https://docs.brew.sh/Manpage#shellenv
