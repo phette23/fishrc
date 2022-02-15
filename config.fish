@@ -21,3 +21,7 @@ end
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; and source ~/bin/google-cloud-sdk/path.fish.inc
+
+if command --query gpg
+    set -gx GPG_TTY (tty)
+end
