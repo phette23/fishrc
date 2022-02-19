@@ -12,4 +12,4 @@ if command --query brew
 end
 
 set --universal --export EDITOR vim
-set --universal --export HOMEBREW_EDITOR atom
+set --universal --export HOMEBREW_EDITOR code
