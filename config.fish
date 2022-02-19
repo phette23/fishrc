@@ -16,6 +16,10 @@ if command --query rbenv
     rbenv init - | source
 end
 
+# initialize pyenv, see https://github.com/pyenv/pyenv#installation
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
 # iTerm 2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
 
