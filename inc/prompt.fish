@@ -37,7 +37,7 @@ function fish_prompt -d 'Set custom prompt'
   echo -n ' in '
 
   set_color FF0
-  echo -n (prompt_pwd)
+  echo -n (prompt_pwd --full-length-dirs 2)
 
   set_color normal
   parse_git_branch
