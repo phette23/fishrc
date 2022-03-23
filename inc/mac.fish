@@ -25,9 +25,6 @@ if [ $ITERM_SESSION_ID ]
     alias tm 'tmux -CC'
 end
 
-# Source-Highlight (requires Homebrew package)
-alias ccat 'src-hilite-lesspipe.sh'
-
 # free disk space using diskutil instead of df
 function dspa -d 'show disk usage information'
     diskutil info / | grep 'Space' | sed -e 's|^ *||' -e 's| [(].*||'
