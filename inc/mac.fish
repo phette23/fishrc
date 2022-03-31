@@ -8,6 +8,7 @@ alias cq "command --query"
 
 function upd -d 'Run common software update commands'
     cq npm && cq npm-lsg-unlinked && npm-lsg-unlinked | xargs npm update -g --audit=false --fund=false
+    cq gcloud && gcloud components update
     sudo softwareupdate -i -a
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
 end
