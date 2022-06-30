@@ -4,9 +4,9 @@ end
 
 # OS-specific customizations
 set osname (uname)
-if [ $osname = 'Darwin' ]
+if [ $osname = Darwin ]
     source ~/.config/fish/inc/mac.fish
-else if [ $osname = 'Linux' ]
+else if [ $osname = Linux ]
     source ~/.config/fish/inc/linux.fish
 end
 

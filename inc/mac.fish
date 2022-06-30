@@ -1,6 +1,6 @@
 # set tab title to current command & directory
 function fish_title
-  echo -n (status current-command) '-' (basename $PWD)
+    echo -n (status current-command) - (basename $PWD)
 end
 
 # to make everything below more succinct
@@ -16,6 +16,13 @@ end
 # Homebrew env vars https://docs.brew.sh/Manpage#shellenv
 cq /usr/local/bin/brew && eval (/usr/local/bin/brew shellenv)
 
+# pnpm
+# put under Mac because dir might be different under Linux
+if cq pnpm
+    set -gx PNPM_HOME ~/Library/pnpm
+    fish_add_path "$PNPM_HOME"
+end
+
 ############################
 # OS X Aliases & Functions #
 ############################
@@ -28,7 +35,7 @@ end
 
 # free disk space using diskutil instead of df
 function dspa -d 'show disk usage information'
-    diskutil info / | grep 'Space' | sed -e 's|^ *||' -e 's| [(].*||'
+    diskutil info / | grep Space | sed -e 's|^ *||' -e 's| [(].*||'
 end
 
 # Empty the Trash on all mounted volumes and the main HDD
@@ -55,32 +62,32 @@ alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 function tab -d 'open new terminal tab & execute cmd'
     if [ (count $argv) -eq 0 ]
-        set cmd 'clear'
+        set cmd clear
     else
         set cmd $argv
     end
 
-  set the_app (osascript -e 'tell application "System Events"
+    set the_app (osascript -e 'tell application "System Events"
         name of first item of (every process whose frontmost is true)
       end tell'
-  )
+    )
 
-  if [ $the_app = 'Terminal' ]
-    osascript -e "tell application \"System Events\"
+    if [ $the_app = Terminal ]
+        osascript -e "tell application \"System Events\"
           tell process \"Terminal\" to keystroke \"t\" using command down
           tell application \"Terminal\" to do script \"$cmd\" in front window
-      end tell"
-  end
+        end tell"
+    end
 
-  if [ $the_app = 'iTerm' -o $the_app = 'iTerm2' ]
-    osascript -e "tell application \"$the_app\"
-        tell current window
-            create tab with default profile
-            tell current session
-                write text \"$cmd\"
+    if [ $the_app = iTerm -o $the_app = iTerm2 ]
+        osascript -e "tell application \"$the_app\"
+            tell current window
+                create tab with default profile
+                tell current session
+                    write text \"$cmd\"
+                end tell
             end tell
-        end tell
-    end tell"
-  end
+        end tell"
+    end
 
 end
