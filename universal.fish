@@ -13,5 +13,6 @@ if command --query brew
     brew --prefix coreutils >/dev/null; and fish_add_path (brew --prefix coreutils)/libexec/gnubin
 end
 
+set --universal --export DOCKER_SCAN_SUGGEST false
 set --universal --export EDITOR vim
 set --universal --export HOMEBREW_EDITOR code
