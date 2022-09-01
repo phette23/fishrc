@@ -23,6 +23,10 @@ status is-interactive; and pyenv init - | source
 # iTerm 2 integration
 [ -e ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
 
+# VS Code shell integration
+string match -q "$TERM_PROGRAM" vscode
+and . (code --locate-shell-integration-path fish)
+
 # The next line updates PATH for the Google Cloud SDK.
 [ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; and source ~/bin/google-cloud-sdk/path.fish.inc
 
