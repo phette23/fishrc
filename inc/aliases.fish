@@ -1,15 +1,15 @@
 # Simple functions that are basically aliases
 
 function ... -d 'Go up 2 dirs'
-	cd ../..
+    cd ../..
 end
 
 function .... -d 'Go up 3 dirs'
-	cd ../../..
+    cd ../../..
 end
 
 function ..... -d 'Go up 4 dirs'
-	cd ../../../..
+    cd ../../../..
 end
 
 alias b brew
@@ -19,11 +19,11 @@ alias be 'bundle exec'
 alias cl 'wc -l'
 
 function co -d 'Go to ~/code'
-	cd ~/code
+    cd ~/code
 end
 
 function cx -d 'Make file executable'
-	chmod +x $argv
+    chmod +x $argv
 end
 
 function dl -d 'Go to Downloads'
@@ -39,16 +39,16 @@ function dr -d 'Go to Google Drive'
 end
 
 function dt -d 'ISO 8601 format for the current date'
-	date "+%Y-%m-%d" $argv
+    date "+%Y-%m-%d" $argv
 end
 
 function e -d 'exa (improved version of "ls")' --wraps=exa
-	# make "date" column cyan instead of hard-to-read dark blue
-	EXA_COLORS="da=36" exa -l --group-directories-first $argv
+    # make "date" column cyan instead of hard-to-read dark blue
+    EXA_COLORS="da=36" exa -l --group-directories-first $argv
 end
 
 function fn -d 'Shorthand for (functions)' --wraps=functions
-  functions $argv
+    functions $argv
 end
 
 alias g git
@@ -58,6 +58,8 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS
     # won't work with SSL verification, `cpan -i Mozilla:CA` doesn't fix this
     alias $method "PERL_LWP_SSL_VERIFY_HOSTNAME=0 lwp-request -m $method -u"
 end
+
+command -q ggrep && alias grep ggrep
 
 function gs -d 'Concise git status'
     git status -sb
@@ -75,53 +77,53 @@ function k1 -d 'Kill the first job'
 end
 
 function l -d 'List files in long format'
-	if command -q exa
-		EXA_COLORS="da=36" exa -l --group-directories-first $argv
-	else
-		ls -lG $argv
-	end
+    if command -q exa
+        EXA_COLORS="da=36" exa -l --group-directories-first $argv
+    else
+        ls -lG $argv
+    end
 end
 
 function la -d 'List (all) files long format'
-	if command -q exa
-		EXA_COLORS="da=36" exa -al --group-directories-first $argv
-	else
-		ls -alG $argv
-	end
+    if command -q exa
+        EXA_COLORS="da=36" exa -al --group-directories-first $argv
+    else
+        ls -alG $argv
+    end
 end
 
 function lsa -d 'List (all) files in short format'
-	if command -q exa
-		EXA_COLORS="da=36" exa -a --group-directories-first $argv
-	else
-		ls -aFG $argv
-	end
+    if command -q exa
+        EXA_COLORS="da=36" exa -a --group-directories-first $argv
+    else
+        ls -aFG $argv
+    end
 end
 
 function lsd -d 'List only directories'
-	if command -q exa
-		exa -D $argv
-	else
-		ls -l $argv | grep "^d" --color=never
-	end
+    if command -q exa
+        exa -D $argv
+    else
+        ls -l $argv | grep "^d" --color=never
+    end
 end
 
 function map -d 'Intuitive map function' --wraps=xargs
-	xargs -n1 $argv
+    xargs -n1 $argv
 end
 
 alias mre "mdless readme.md"
 
 function nout -d 'npm outdated --depth=0'
-  npm outdated --depth=0 $argv
+    npm outdated --depth=0 $argv
 end
 
 function nr -d 'npm run alias'
-  npm run $argv
+    npm run $argv
 end
 
 function pgl -d 'Find matching running processes'
-	pgrep -alf $argv
+    pgrep -alf $argv
 end
 
 function pic -d 'Go to Pictures'
@@ -129,5 +131,5 @@ function pic -d 'Go to Pictures'
 end
 
 function rf -d 'Remove recursively—careful!!!'
-	rm -rf $argv
+    rm -rf $argv
 end
