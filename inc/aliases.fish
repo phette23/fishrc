@@ -42,6 +42,10 @@ function dt -d 'ISO 8601 format for the current date'
     date "+%Y-%m-%d" $argv
 end
 
+function duf -d 'disk usage'
+    duf -hide special $argv1
+end
+
 function e -d 'exa (improved version of "ls")' --wraps=exa
     # make "date" column cyan instead of hard-to-read dark blue
     EXA_COLORS="da=36" exa -l --group-directories-first $argv
