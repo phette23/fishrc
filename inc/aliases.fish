@@ -43,7 +43,7 @@ function dt -d 'ISO 8601 format for the current date'
 end
 
 function duf -d 'disk usage'
-    duf -hide special $argv1
+    command duf -hide special $argv1
 end
 
 function e -d 'exa (improved version of "ls")' --wraps=exa
