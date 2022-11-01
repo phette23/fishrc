@@ -9,7 +9,7 @@ alias cq "command --query"
 function upd -d 'Run common software update commands'
     pnpm update -g
     cq gcloud && gcloud components update --quiet
-    sudo softwareupdate --download --all
+    sudo softwareupdate --download --all --verbose
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
 end
 
