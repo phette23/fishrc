@@ -116,7 +116,7 @@ function map -d 'Intuitive map function' --wraps=xargs
     xargs -n1 $argv
 end
 
-alias mre "mdless readme.md"
+alias mre "glow -p readme.md"
 
 function nout -d 'npm outdated --depth=0'
     npm outdated --depth=0 $argv
