@@ -13,9 +13,6 @@ function upd -d 'Run common software update commands'
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
 end
 
-# Homebrew env vars https://docs.brew.sh/Manpage#shellenv
-cq /usr/local/bin/brew && eval (/usr/local/bin/brew shellenv)
-
 # pnpm
 # put under Mac because dir might be different under Linux
 if cq pnpm
