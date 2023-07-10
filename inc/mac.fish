@@ -20,6 +20,9 @@ if cq pnpm
     fish_add_path "$PNPM_HOME"
 end
 
+# to make perl modules persist across brew upgrades, see brew info perl
+eval (perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)
+
 ############################
 # OS X Aliases & Functions #
 ############################
