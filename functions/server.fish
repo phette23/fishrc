@@ -7,6 +7,6 @@ function server -d 'Start a python HTTP server in the current dir, optionally sp
 
     sleep 2
     and open "http://localhost:$port/" &
-    python -c 'import SimpleHTTPServer; SimpleHTTPServer.test();' $port
+    python -m http.server $port
 
 end
