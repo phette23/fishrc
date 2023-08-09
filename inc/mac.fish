@@ -6,6 +6,16 @@ end
 # to make everything below more succinct
 alias cq "command --query"
 
+function eqlaunch -d 'run EQUELLA admin launcher & copy password to clipboard'
+    if cq eq; and cq op
+        set user (jq -r '.username' ~/.equellarc)
+        op item get "VAULT ($user)" --fields password | tr -d '\n' | pbcopy
+        and eq launch
+    else
+        echo "Requires equella-cli and onepassword cli to be installed"
+    end
+end
+
 function upd -d 'Run common software update commands'
     pnpm update --global --latest
     cq gcloud && gcloud components update --quiet
