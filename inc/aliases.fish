@@ -134,6 +134,8 @@ function pic -d 'Go to Pictures'
     cd ~/Pictures
 end
 
+alias pv-outdated "pipenv update --dry-run"
+
 function rf -d 'Remove recursively—careful!!!'
     rm -rf $argv
 end
