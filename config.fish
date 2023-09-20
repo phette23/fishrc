@@ -10,10 +10,9 @@ else if [ $osname = Linux ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# initialize ruby env, see https://coderwall.com/p/hmousw
-if command --query rbenv
-    set -gx RBENV_ROOT $HOME/.rbenv
-    rbenv init - | source
+# programming language version management (asdf & pyenv)
+if command --query asdf; and test -f /usr/local/opt/asdf/libexec/asdf.fish
+    source /usr/local/opt/asdf/libexec/asdf.fish
 end
 
 # initialize pyenv, see https://github.com/pyenv/pyenv#installation
