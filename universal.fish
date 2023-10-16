@@ -2,11 +2,11 @@
 # silent intro
 set --universal fish_greeting ""
 
-fish_add_path /usr/local/bin
-[ -d ~/bin ]; and fish_add_path ~/bin
-[ -d /usr/local/sbin ]; and fish_add_path /usr/local/sbin
+fish_add_path ~/bin \
+    /usr/local/sbin \
+    /opt/homebrew/bin
 set --universal --export PYENV_ROOT $HOME/.pyenv
-[ -d $PYENV_ROOT/bin ]; and fish_add_path $PYENV_ROOT/bin
+fish_add_path $PYENV_ROOT/bin
 
 # homebrew formula bins
 if command --query brew
