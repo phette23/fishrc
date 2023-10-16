@@ -104,14 +104,6 @@ function lsa -d 'List (all) files in short format'
     end
 end
 
-function lsd -d 'List only directories'
-    if command -q eza
-        eza -D $argv
-    else
-        ls -l $argv | grep "^d" --color=never
-    end
-end
-
 function map -d 'Intuitive map function' --wraps=xargs
     xargs -n1 $argv
 end
