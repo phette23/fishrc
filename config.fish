@@ -20,8 +20,10 @@ if command --query asdf
 end
 
 # initialize pyenv, see https://github.com/pyenv/pyenv#installation
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
+if command --query pyenv
+    status is-login; and pyenv init --path | source
+    status is-interactive; and pyenv init - | source
+end
 
 # iTerm 2 integration
 [ -f ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
