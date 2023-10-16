@@ -46,9 +46,9 @@ function duf -d 'disk usage'
     command duf -hide special $argv1
 end
 
-function e -d 'exa (improved version of "ls")' --wraps=exa
+function e -d 'eza (improved version of "ls")' --wraps=eza
     # make "date" column cyan instead of hard-to-read dark blue
-    EXA_COLORS="da=36" exa -l --group-directories-first $argv
+    EZA_COLORS="da=36" eza -l --group-directories-first $argv
 end
 
 function fn -d 'Shorthand for (functions)' --wraps=functions
@@ -81,32 +81,32 @@ function k1 -d 'Kill the first job'
 end
 
 function l -d 'List files in long format'
-    if command -q exa
-        EXA_COLORS="da=36" exa -l --group-directories-first $argv
+    if command -q eza
+        EZA_COLORS="da=36" eza -l --group-directories-first $argv
     else
         ls -lG $argv
     end
 end
 
 function la -d 'List (all) files long format'
-    if command -q exa
-        EXA_COLORS="da=36" exa -al --group-directories-first $argv
+    if command -q eza
+        EZA_COLORS="da=36" eza -al --group-directories-first $argv
     else
         ls -alG $argv
     end
 end
 
 function lsa -d 'List (all) files in short format'
-    if command -q exa
-        EXA_COLORS="da=36" exa -a --group-directories-first $argv
+    if command -q eza
+        EZA_COLORS="da=36" eza -a --group-directories-first $argv
     else
         ls -aFG $argv
     end
 end
 
 function lsd -d 'List only directories'
-    if command -q exa
-        exa -D $argv
+    if command -q eza
+        eza -D $argv
     else
         ls -l $argv | grep "^d" --color=never
     end
