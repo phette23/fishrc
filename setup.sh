@@ -2,7 +2,13 @@
 # Install fish, add to /etc/shells, sync
 
 command -v fish &>/dev/null || brew install fish
-grep fish /etc/shells >/dev/null || echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+if [ ! "$(grep fish /etc/shells)" ]; then
+    for dir in '/usr/local/bin/fish' '/opt/homebrew/bin/fish'; do
+        if [ -x "$dir" ]; then
+            echo $dir | sudo tee -a /etc/shells
+        fi
+    done
+fi
 
 # install fisherman plugin manager (this automatically adds "fisher" tap)
 brew install bbatsche/fisher/fisherman
