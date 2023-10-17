@@ -2,6 +2,8 @@
 # silent intro
 set --universal fish_greeting ""
 
+# make the user path universal (persistent)
+fish_add_path -U
 fish_add_path ~/bin \
     /usr/local/sbin \
     /opt/homebrew/bin
