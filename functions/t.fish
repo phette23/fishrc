@@ -1,5 +1,7 @@
 function t -d 'todo.sh alias (adds date, uses config from Google Drive)' --wraps=todo.sh
-    [ -f ~/Google\ Drive/z/todo/todo.cfg ] && set dir ~/Google\ Drive/z/todo/todo.cfg
-    [ -f ~/Google\ Drive/My\ Drive/z/todo/todo.cfg ] && set dir ~/Google\ Drive/My\ Drive/z/todo/todo.cfg
-	todo.sh -t -d $dir $argv
+    if not set -q TODOTXT_CFG_FILE
+        echo "The 't' wrapper for todo.sh expects a TODOTXT_CFG_FILE env var pointing to your todo.txt folder which houses the task list(s) and todo.cfg file. Try setting TODOTXT_CFG_FILE first with 'set -Ux TODOTXT_CFG_FILE /path/to/todo.cfg'" >&2
+        return 1
+    end
+    todo.sh -t $argv
 end
