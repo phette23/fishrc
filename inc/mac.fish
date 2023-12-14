@@ -68,6 +68,9 @@ alias localip "ipconfig getifaddr en0"
 # restart local SSH server, need to do this before running Portal vagrant sometimes
 alias restart_ssh "sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist"
 
+# improved `top` on MacOS, don't show so many useless figures
+alias top "top -stats pid,user,command,cpu,mem,threads,time,pgrp,ppid,state"
+
 # stolen from oh-my-zsh's OS X plugin:
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 function tab -d 'open new terminal tab & execute cmd'
