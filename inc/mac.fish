@@ -31,7 +31,7 @@ if cq pnpm
 end
 
 # to make perl modules persist across brew upgrades, see brew info perl
-eval (perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)
+[ -d $HOME/perl5 ]; and eval (perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)
 
 ############################
 # OS X Aliases & Functions #
