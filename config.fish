@@ -38,3 +38,8 @@ and . (code --locate-shell-integration-path fish)
 if command --query gpg
     set -gx GPG_TTY (tty)
 end
+
+# z-like directory jumping
+if command --query zoxide
+    zoxide init fish | source
+end
