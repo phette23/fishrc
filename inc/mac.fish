@@ -48,10 +48,6 @@ function dspa -d 'show disk usage information'
     diskutil info / | grep Space | sed -e 's|^ *||' -e 's| [(].*||'
 end
 
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash "sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
-
 # flush the DNS cache (Mac OS 10.12 & later)
 alias flushdns "sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper; sudo dscacheutil -flushcache"
 
