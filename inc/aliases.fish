@@ -128,6 +128,10 @@ end
 
 alias pv-outdated "pipenv update --dry-run"
 
+function psh -d "alias  for pipenv shell"
+    pipenv shell
+end
+
 function rf -d 'Remove recursively—careful!!!'
     rm -rf $argv
 end
