@@ -10,8 +10,8 @@ else if [ $osname = Linux ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# programming language version management (asdf & pyenv)
-if command --query asdf
+# programming language version management (asdf)
+if cq asdf
     if test -f /usr/local/opt/asdf/libexec/asdf.fish
         source /usr/local/opt/asdf/libexec/asdf.fish
     else if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
@@ -19,27 +19,16 @@ if command --query asdf
     end
 end
 
-# initialize pyenv, see https://github.com/pyenv/pyenv#installation
-if command --query pyenv
-    status is-login; and pyenv init --path | source
-    status is-interactive; and pyenv init - | source
-end
-
 # iTerm 2 integration
 [ -f ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
 
 # VS Code shell integration
-string match -q "$TERM_PROGRAM" vscode
-and . (code --locate-shell-integration-path fish)
+string match -q "$TERM_PROGRAM" vscode; and source (code --locate-shell-integration-path fish)
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; and source ~/bin/google-cloud-sdk/path.fish.inc
 
-if command --query gpg
-    set -gx GPG_TTY (tty)
-end
+cq gpg; and set -gx GPG_TTY (tty)
 
 # z-like directory jumping
-if command --query zoxide
-    zoxide init fish | source
-end
+cq zoxide; and zoxide init fish | source

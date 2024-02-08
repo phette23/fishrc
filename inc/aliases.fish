@@ -26,6 +26,8 @@ function cx -d 'Make file executable'
     chmod +x $argv
 end
 
+alias cq 'command --query'
+
 function dl -d 'Go to Downloads'
     cd ~/Downloads
 end

@@ -3,9 +3,6 @@ function fish_title
     echo -n (status current-command) - (basename $PWD)
 end
 
-# to make everything below more succinct
-alias cq "command --query"
-
 function eqlaunch -d 'run EQUELLA admin launcher & copy password to clipboard'
     if cq eq; and cq op
         set user (jq -r '.username' ~/.equellarc)
