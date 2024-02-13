@@ -14,11 +14,12 @@ function eqlaunch -d 'run EQUELLA admin launcher & copy password to clipboard'
 end
 
 function upd -d 'Run common software update commands'
-    pnpm update --global --latest
+    cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
     cq code && code --update-extensions
     cq gcloud && gcloud components update --quiet
+    cq pipx && pipx upgrade-all
+    cq pnpm && pnpm update --global --latest
     sudo softwareupdate --download --all --verbose
-    cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
 end
 
 # pnpm
