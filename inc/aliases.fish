@@ -22,7 +22,7 @@ function co -d 'Go to ~/code'
     cd ~/code
 end
 
-function cx -d 'Make file executable'
+function cx -d 'Make file executable' --wraps chmod
     chmod +x $argv
 end
 
@@ -40,7 +40,7 @@ function dr -d 'Go to Google Drive'
     cd ~/Google\ Drive
 end
 
-function dt -d 'ISO 8601 format for the current date'
+function dt -d 'ISO 8601 format for the current date' --wraps date
     date "+%Y-%m-%d" $argv
 end
 
@@ -48,12 +48,12 @@ function duf -d 'disk usage'
     command duf -hide special $argv1
 end
 
-function e -d 'eza (improved version of "ls")' --wraps=eza
+function e -d 'eza (improved version of "ls")' --wraps eza
     # make "date" column cyan instead of hard-to-read dark blue
     EZA_COLORS="da=36" eza -l --group-directories-first $argv
 end
 
-function fn -d 'Shorthand for (functions)' --wraps=functions
+function fn -d 'Shorthand for (functions)' --wraps functions
     functions $argv
 end
 
@@ -82,7 +82,7 @@ function k1 -d 'Kill the first job'
     kill %1
 end
 
-function l -d 'List files in long format'
+function l -d 'List files in long format' --wraps eza
     if command -q eza
         EZA_COLORS="da=36" eza -l --group-directories-first $argv
     else
@@ -90,7 +90,7 @@ function l -d 'List files in long format'
     end
 end
 
-function la -d 'List (all) files long format'
+function la -d 'List (all) files long format' --wraps eza
     if command -q eza
         EZA_COLORS="da=36" eza -al --group-directories-first $argv
     else
@@ -98,7 +98,7 @@ function la -d 'List (all) files long format'
     end
 end
 
-function lsa -d 'List (all) files in short format'
+function lsa -d 'List (all) files in short format' --wraps eza
     if command -q eza
         EZA_COLORS="da=36" eza -a --group-directories-first $argv
     else
@@ -106,7 +106,7 @@ function lsa -d 'List (all) files in short format'
     end
 end
 
-function map -d 'Intuitive map function' --wraps=xargs
+function map -d 'Intuitive map function' --wraps xargs
     xargs -n1 $argv
 end
 
@@ -120,7 +120,7 @@ function nr -d 'npm run alias'
     npm run $argv
 end
 
-function pgl -d 'Find matching running processes'
+function pgl -d 'Find matching running processes' --wraps pgrep
     pgrep -alf $argv
 end
 
@@ -130,6 +130,6 @@ end
 
 alias pv-outdated "pipenv update --dry-run"
 
-function rf -d 'Remove recursively—careful!!!'
+function rf -d 'Remove recursively—careful!!!' --wraps rm
     rm -rf $argv
 end

@@ -1,4 +1,4 @@
-function fs -d 'Determine size of a file or total size of a directory'
+function fs -d 'Determine size of a file or total size of a directory' --wraps du
     if du -b /dev/null &> /dev/null
         set arg -sbh
     else
