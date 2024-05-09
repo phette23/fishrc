@@ -26,3 +26,8 @@ cq gpg; and set -gx GPG_TTY (tty)
 
 # z-like directory jumping
 cq zoxide; and zoxide init fish | source
+
+# https://github.com/cca/libraries-k8s
+if [ -f ~/.config/fish/functions/set_k8s_ctx.fish ]
+    source ~/.config/fish/functions/set_k8s_ctx.fish
+end
