@@ -10,14 +10,8 @@ else if [ $osname = Linux ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# programming language version management (asdf)
-if cq asdf
-    if test -f /usr/local/opt/asdf/libexec/asdf.fish
-        source /usr/local/opt/asdf/libexec/asdf.fish
-    else if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
-        source /opt/homebrew/opt/asdf/libexec/asdf.fish
-    end
-end
+# programming language version management (mise)
+cq mise; and mise activate fish | source
 
 # iTerm 2 integration
 [ -f ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
