@@ -10,9 +10,6 @@ else if [ $osname = Linux ]
     source ~/.config/fish/inc/linux.fish
 end
 
-# programming language version management (mise)
-cq mise; and mise activate fish | source
-
 # iTerm 2 integration
 [ -f ~/.iterm2_shell_integration.fish ]; and source ~/.iterm2_shell_integration.fish
 
