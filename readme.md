@@ -10,7 +10,7 @@ Everything is sourced through config.fish. The files inside "inc" have self-expl
 
 Fish autoloads any functions in the "functions" directory.
 
-**setup.sh** gets you up-&-running on a new Mac that doesn't have Fish or [Fisherman](https://github.com/fisherman/fisherman) installed yet (requires Homebrew). It installs the [bass](https://github.com/edc/bass) and [z](https://github.com/rupa/z) plugins as well as iTerm2 integration.
+**setup.sh** gets you up-&-running on a new Mac by adding fish to /etc/shells, downloading the iTerm integration script, and copying these files into place.
 
 **universal.fish** sets a couple universal variables which you may want, again handy for setting up a new system.
 
