@@ -12,5 +12,7 @@ if grep -q fish /etc/shells; then
 fi
 
 # download iTerm2 integration file
-curl -L https://iterm2.com/misc/fish_startup.in > ~/.iterm2_shell_integration.fish
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+    curl -L https://iterm2.com/misc/fish_startup.in > ~/.iterm2_shell_integration.fish
+fi
 ./copy.fish
