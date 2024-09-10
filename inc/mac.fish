@@ -17,9 +17,9 @@ function upd -d 'Run common software update commands'
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade
     cq code && code --update-extensions 2>/dev/null
     cq gcloud && gcloud components update --quiet
-    cq pipx && pipx upgrade-all
     cq pnpm && pnpm update --global --latest
     sudo softwareupdate --download --all --verbose
+    cq uv && uv tool upgrade --all
 end
 
 # pnpm
