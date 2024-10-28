@@ -17,7 +17,8 @@ if command --query brew
     set --universal --export HOMEBREW_NO_ENV_HINTS true
 end
 
-# don't build docker images using macos architecture
+# make docker shut up & don't build images using macOS architecture
+set --universal --export DOCKER_CLI_HINTS false
 set --universal --export DOCKER_DEFAULT_PLATFORM linux/amd64
 set --universal --export DOCKER_SCAN_SUGGEST false
 set --universal --export EDITOR vim
