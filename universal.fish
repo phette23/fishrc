@@ -2,18 +2,19 @@
 # silent intro
 set --universal fish_greeting ""
 
-# make the user path universal (persistent)
-fish_add_path -U
 fish_add_path ~/bin \
+    ~/bin/google-cloud-sdk/bin \
     /usr/local/sbin \
-    /opt/homebrew/bin
-set --universal --export PYENV_ROOT $HOME/.pyenv
-fish_add_path $PYENV_ROOT/bin
+    /opt/homebrew/bin \
+    /opt/homebrew/sbin \
+    /opt/homebrew/opt/curl/bin \
+    /opt/homebrew/opt/openjdk/bin \
+    /opt/homebrew/opt/fzf/bin
 
 # homebrew formula bins
 if command --query brew
     brew --prefix coreutils >/dev/null; and fish_add_path (brew --prefix coreutils)/libexec/gnubin
-    set --universal --export HOMEBREW_EDITOR code
+    command --query code; and set --universal --export HOMEBREW_EDITOR code
     set --universal --export HOMEBREW_NO_ENV_HINTS true
 end
 
