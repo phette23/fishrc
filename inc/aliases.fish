@@ -110,6 +110,10 @@ function map -d 'Intuitive map function' --wraps xargs
     xargs -n1 $argv
 end
 
+function ncdu -d 'ncdu ignoring Drive directories' --wraps ncdu
+    command ncdu --exclude "GoogleDrive*" --exclude "*Google Drive"
+end
+
 function nr -d 'npm run alias'
     npm run $argv
 end
