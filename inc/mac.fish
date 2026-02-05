@@ -19,6 +19,7 @@ function upd -d 'Run common software update commands'
     cq gcloud && gcloud components update --quiet
     cq pnpm; and begin
         pnpm self-update
+        pnpm outdated --global
         pnpm update --global --latest
     end
     sudo softwareupdate --download --all --verbose
