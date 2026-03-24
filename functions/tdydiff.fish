@@ -2,7 +2,7 @@ function tdydiff -d "run perltidy on all new & modified Perl files, showing diff
     set files (git status --porcelain | sed 's|^...||' | grep '\.p[lm]$')
     for f in $files
         echo "=== $f ==="
-        perltidy $f # ? do we need to 
+        perltidy $f
         diff -u $f $f.tdy
         and echo "✅ file is tidy"
         rm $f.tdy
