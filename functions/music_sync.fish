@@ -13,7 +13,11 @@ function music_sync -d "Copy ~/Music files to external hard drive"
     end
 
     # Example command to sync music (replace with actual sync command)
-    rsync --archive --compress --human-readable --progress --update ~/Music/Music/ /Volumes/Arxiv/Music/Music
+    rsync --archive --compress --exclude '.DS_Store' --human-readable --progress --update ~/Music/Music/ /Volumes/Arxiv/Music/Music
 
-    echo "Music synchronization completed."
+    if test $status -eq 0
+        echo "Music synchronization completed."
+    else
+        echo "Music synchronization failed." >&2
+    end
 end
