@@ -19,9 +19,6 @@ string match -q "$TERM_PROGRAM" vscode; and source (code --locate-shell-integrat
 # Update PATH for the Google Cloud SDK.
 [ -f '~/bin/google-cloud-sdk/path.fish.inc' ]; and source ~/bin/google-cloud-sdk/path.fish.inc
 
-# Persistent Perl libraries across homebrew upgrades
-cq perl; and [ -d $HOME/perl5 ]; and perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5 | source
-
 cq gpg; and set -gx GPG_TTY (tty)
 
 # z-like directory jumping
