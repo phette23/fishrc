@@ -31,6 +31,7 @@ end
 if cq pnpm
     set -gx PNPM_HOME ~/Library/pnpm
     fish_add_path "$PNPM_HOME"
+    fish_add_path "$PNPM_HOME/bin" # v11 new global bin path
 end
 
 ############################
