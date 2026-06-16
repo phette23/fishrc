@@ -1,5 +1,5 @@
 function tdydiff -d "run perltidy on all new & modified Perl files, showing differences"
-    set files (git status --porcelain | sed 's|^...||' | grep '\.p[lm]$')
+    set files (git status --porcelain | sed 's|^...||' | grep -E '\.(p[lm]|t)$')
     for f in $files
         echo "=== $f ==="
         perltidy $f
