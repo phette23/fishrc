@@ -3,16 +3,6 @@ function fish_title
     echo -n (status current-command) - (basename $PWD)
 end
 
-function eqlaunch -d 'run EQUELLA admin launcher & copy password to clipboard'
-    if cq eq; and cq op
-        set user (jq -r '.username' ~/.equellarc)
-        op item get "VAULT ($user)" --fields password --reveal | tr -d '\n' | pbcopy
-        and eq launch
-    else
-        echo "Requires equella-cli and onepassword cli to be installed"
-    end
-end
-
 function upd -d 'Run common software update commands'
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade --yes
     cq code && code --update-extensions 2>/dev/null
