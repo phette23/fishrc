@@ -16,8 +16,16 @@ function music_sync -d "Copy ~/Music files to external hard drive"
     rsync --archive --compress --exclude '.DS_Store' --human-readable --progress --update ~/Music/Media.localized/Music/ /Volumes/Arxiv/Music
 
     if test $status -eq 0
-        echo "Music synchronization completed."
+        echo "External drive music synchronization completed."
+        # Cloud sync only if local suceeded
+        gcloud config configurations activate personal-archive
+        GOOGLE_CLOUD_QUOTA_PROJECT=personal-archive-508402 gcloud storage rsync -r -u /Volumes/Arxiv/Music gs://music2323
+        if test $status -eq 0
+            echo "Cloud music synchronization completed."
+        else
+            echo "Cloud music synchronization failed." >&2
+        end
     else
-        echo "Music synchronization failed." >&2
+        echo "External drive music synchronization failed." >&2
     end
 end
