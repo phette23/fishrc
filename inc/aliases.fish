@@ -129,3 +129,7 @@ end
 function rf -d 'Remove recursively—careful!!!' --wraps rm
     rm -rf $argv
 end
+
+function ur -d 'uv run alias' --wraps uv
+    uv run $argv
+end
