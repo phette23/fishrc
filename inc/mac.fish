@@ -6,14 +6,15 @@ end
 function upd -d 'Run common software update commands'
     cq brew && brew update && HOMEBREW_NO_ENV_HINTS=true brew upgrade --yes
     cq code && code --update-extensions 2>/dev/null
+    cq mise && mise upgrade
     cq gcloud && gcloud components update --quiet
     cq pnpm; and begin
         pnpm self-update
         pnpm outdated --global
         pnpm update --global --latest
     end
-    sudo softwareupdate --download --all --verbose
     cq uv && uv tool upgrade --all
+    sudo softwareupdate --download --all --verbose
 end
 
 # pnpm
