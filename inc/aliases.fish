@@ -118,6 +118,10 @@ function nr -d 'npm run alias'
     npm run $argv
 end
 
+function pnr -d 'pnpm run alias'
+    pnpm run $argv
+end
+
 function pgl -d 'Find matching running processes' --wraps pgrep
     pgrep -alf $argv
 end
